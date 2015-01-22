@@ -1,10 +1,11 @@
 var http = require("http"),
     fs = require('fs'),
-    parseString = require('xml2js').parseString;
+    parseString = require('xml2js').parseString,
+    url = "http://map.labucketbrigade.org/feed",
+    writeFile = "incidents.json",
+    incidents = require('./incidents.json'),
 
-// Utility function that downloads a URL and invokes
-// callback with the data.
-function download(url, callback) {
+download = function(url, callback) {
   http.get(url, function(res) {
     var data = "";
     res.on('data', function (chunk) {
@@ -16,23 +17,26 @@ function download(url, callback) {
   }).on("error", function() {
     callback(null);
   });
-}
+},
 
-var url = "http://map.labucketbrigade.org/feed"
+appendToFile = function(content){
+  fs.appendFile(writeFile, content, function(e){
+    if(e) {
+      console.log(e);
+    } else {
+        console.log("The file was saved.");
+    }
+  })
+},
 
 download(url, function(data) {
   var json;
   if (data) {
     parseString(data, function (err, result) {
-        json = JSON.stringify(result);
+      var targetData = result['rss']['channel'][0]['item'];
+      json = JSON.stringify(targetData, undefined, 2);
     });
-    fs.writeFile("test.json", json, function(e){
-      if(e) {
-        console.log(e);
-      } else {
-          console.log("The file was saved!");
-      }
-    })
+    appendToFile(json);
   }
   else console.log("error");  
 });
