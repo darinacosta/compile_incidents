@@ -2,7 +2,7 @@ var http = require("http"),
     fs = require('fs'),
     parseString = require('xml2js').parseString,
     url = "http://map.labucketbrigade.org/feed",
-    writeFile = "incidents.json",
+    file = "incidents.json",
     incidents = require('./incidents.json'),
 
 download = function(url, callback) {
@@ -19,8 +19,8 @@ download = function(url, callback) {
   });
 },
 
-appendToFile = function(content){
-  fs.appendFile(writeFile, content, function(e){
+writeToFile = function(content){
+  fs.writeFile(file, content, function(e){
     if(e) {
       console.log(e);
     } else {
@@ -29,14 +29,30 @@ appendToFile = function(content){
   })
 },
 
+jsonRecorded = function(entry){
+  for (var i = 0; i < incidents.length; i++){
+    if (incidents[i]['guid'][0] === entry['guid'][0]){
+      console.log(incidents[i]['guid']  + ' is already recorded')
+      return true;
+    }
+  }
+  return false;
+};
+
 download(url, function(data) {
-  var json;
+  //var json;
   if (data) {
     parseString(data, function (err, result) {
       var targetData = result['rss']['channel'][0]['item'];
-      json = JSON.stringify(targetData, undefined, 2);
+      for (var i = 0; i < targetData.length; i++){
+        if (jsonRecorded(targetData[i]) === false){
+          console.log(incidents[i]['guid'] + ' was recorded');
+          incidents.push[targetData[i]]
+        }
+      }
+      var incidentString = JSON.stringify(incidents, undefined, 2);
+      writeToFile(incidentString);
     });
-    appendToFile(json);
   }
   else console.log("error");  
 });
