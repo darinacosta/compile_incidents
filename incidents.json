@@ -1,53 +1,31 @@
 [
   {
     "title": [
-      "Foul Odor in St. Rose"
+      "Forty foot flame"
     ],
     "link": [
-      "http://map.labucketbrigade.org/reports/view/14381"
+      "http://map.labucketbrigade.org/reports/view/14353"
     ],
     "description": [
-      "Yes, I&#039;m at 208 2nd Street in Saint Rose, Louisiana and I smell a very foul smelling odor in the community, a very nauseating odor in the community. Thank you. Please check on that. \n\nPlay message:  \nhttps://www.google.com/voice/fm/07024096040023310261/AHwOX_Drvhs7_cxAMKBezkiCPkJRjWGBT6illBBmRwKQJMWLn_nhWWkd89R0SPFCIZIp2bTeo-q7e70dxQQ0dDLCE6ZUXi9tb8INLcawZrogGsq7Cpr7KDvGqQMIy7X3l2xUSaNQxdIuqENF4kuMviAR5JRkT9Q6jw"
+      "Flaring as seen from the Luling Bridge at 8:10pm on January 3rd. Very bright, looked like a forty foot flame at least!"
     ],
     "pubDate": [
-      "Sat, 17 Jan 2015 15:48:00 GMT"
+      "Sun, 04 Jan 2015 02:10:00 GMT"
     ],
     "guid": [
-      "http://map.labucketbrigade.org/reports/view/14381"
+      "http://map.labucketbrigade.org/reports/view/14353"
     ],
     "georss:point": [
-      -90.322952,
-      29.945051
+      "29.94264 -90.372947"
     ],
     "category": [
-      "Odor",
-      "Health Effects"
-    ]
-  },
-  {
-    "title": [
-      "Odor in St. Rose"
+      "Flare"
     ],
-    "link": [
-      "http://map.labucketbrigade.org/reports/view/14380"
+    "coordinates": [
+      -90.372947,
+      29.94264
     ],
-    "description": [
-      "I&#039;m at St. Rose on Turtle Creek Lane, 729 Turtle Creek Lane, St. Rose. My name is Diane Canter and I&#039;m smelling this odor out here. What we smelled back in June July, whichever one first. This stuff is stinking out here and I&#039;m really sick sick sick.\n\nPlay message:  \nhttps://www.google.com/voice/fm/07024096040023310261/AHwOX_AZAJDKh5zKAv-lW-RdZu6NPDh4H5E1ILxepMd7FjpWDgZmXwW7DrTb1UoctavsdygbpVKgaQPLVf0R2QDbvcr5Kfmc7ilmJn5n7OhJ4-la9jH614iPoHm8WjbfXyUrX7yHxPc9jVSUgWBCk256znyu0wIz0g"
-    ],
-    "pubDate": [
-      "Sat, 17 Jan 2015 05:31:00 GMT"
-    ],
-    "guid": [
-      "http://map.labucketbrigade.org/reports/view/14380"
-    ],
-    "georss:point": [
-      -90.322692,
-      29.94738
-    ],
-    "category": [
-      "Odor",
-      "Health Effects"
-    ]
+    "id": "14353"
   },
   {
     "title": [
@@ -66,36 +44,16 @@
       "http://map.labucketbrigade.org/reports/view/14379"
     ],
     "georss:point": [
+      "29.9969 -90.413377"
+    ],
+    "category": [
+      "Odor"
+    ],
+    "coordinates": [
       -90.413377,
       29.9969
     ],
-    "category": [
-      "Odor"
-    ]
-  },
-  {
-    "title": [
-      "Foul Odor - St. Rose"
-    ],
-    "link": [
-      "http://map.labucketbrigade.org/reports/view/14378"
-    ],
-    "description": [
-      "Hi. This is a Erica Bolden, 438 4th Street, St. Rose Louisiana. Time started 7:25 smells foul odor to where it is very loud and very (distinguished?). Can&#039;t say what it smell like but it&#039;s a real foul odor. That&#039;s it at this time thank you.\n\n\n\nPlay message:  \nhttps://www.google.com/voice/fm/07024096040023310261/AHwOX_AbORLUYJtuunY-puZw8IgLe7fWIrePOjWpdUFg8eQ7USbEBLzgafVtwpRKV0MjuAm5pvlNY7OQEcMHSQj6HPupqUp_EOrRz8uJnGxNnyiZC-bAD7OsTk6DZ4GOTn_MbWnrsRMYx_e3OFhfNih_Wj_TBd-i-g"
-    ],
-    "pubDate": [
-      "Sat, 17 Jan 2015 01:43:00 GMT"
-    ],
-    "guid": [
-      "http://map.labucketbrigade.org/reports/view/14378"
-    ],
-    "georss:point": [
-      -90.324894,
-      29.947652
-    ],
-    "category": [
-      "Odor"
-    ]
+    "id": "14379"
   },
   {
     "title": [
@@ -114,12 +72,102 @@
       "http://map.labucketbrigade.org/reports/view/14375"
     ],
     "georss:point": [
-      -90.056884,
-      29.937569
+      "29.937569 -90.056884"
     ],
     "category": [
       "Flare"
-    ]
+    ],
+    "coordinates": [
+      -90.056884,
+      29.937569
+    ],
+    "id": "14375"
+  },
+  {
+    "title": [
+      "Foul Odor in St. Rose"
+    ],
+    "link": [
+      "http://map.labucketbrigade.org/reports/view/14381"
+    ],
+    "description": [
+      "Yes, I&#039;m at 208 2nd Street in Saint Rose, Louisiana and I smell a very foul smelling odor in the community, a very nauseating odor in the community. Thank you. Please check on that. \n\nPlay message:  \nhttps://www.google.com/voice/fm/07024096040023310261/AHwOX_Drvhs7_cxAMKBezkiCPkJRjWGBT6illBBmRwKQJMWLn_nhWWkd89R0SPFCIZIp2bTeo-q7e70dxQQ0dDLCE6ZUXi9tb8INLcawZrogGsq7Cpr7KDvGqQMIy7X3l2xUSaNQxdIuqENF4kuMviAR5JRkT9Q6jw"
+    ],
+    "pubDate": [
+      "Sat, 17 Jan 2015 15:48:00 GMT"
+    ],
+    "guid": [
+      "http://map.labucketbrigade.org/reports/view/14381"
+    ],
+    "georss:point": [
+      "29.945051 -90.322952"
+    ],
+    "category": [
+      "Odor",
+      "Health Effects"
+    ],
+    "coordinates": [
+      -90.322952,
+      29.945051
+    ],
+    "id": "14381"
+  },
+  {
+    "title": [
+      "Odor in St. Rose"
+    ],
+    "link": [
+      "http://map.labucketbrigade.org/reports/view/14380"
+    ],
+    "description": [
+      "I&#039;m at St. Rose on Turtle Creek Lane, 729 Turtle Creek Lane, St. Rose. My name is Diane Canter and I&#039;m smelling this odor out here. What we smelled back in June July, whichever one first. This stuff is stinking out here and I&#039;m really sick sick sick.\n\nPlay message:  \nhttps://www.google.com/voice/fm/07024096040023310261/AHwOX_AZAJDKh5zKAv-lW-RdZu6NPDh4H5E1ILxepMd7FjpWDgZmXwW7DrTb1UoctavsdygbpVKgaQPLVf0R2QDbvcr5Kfmc7ilmJn5n7OhJ4-la9jH614iPoHm8WjbfXyUrX7yHxPc9jVSUgWBCk256znyu0wIz0g"
+    ],
+    "pubDate": [
+      "Sat, 17 Jan 2015 05:31:00 GMT"
+    ],
+    "guid": [
+      "http://map.labucketbrigade.org/reports/view/14380"
+    ],
+    "georss:point": [
+      "29.94738 -90.322692"
+    ],
+    "category": [
+      "Odor",
+      "Health Effects"
+    ],
+    "coordinates": [
+      -90.322692,
+      29.94738
+    ],
+    "id": "14380"
+  },
+  {
+    "title": [
+      "Foul Odor - St. Rose"
+    ],
+    "link": [
+      "http://map.labucketbrigade.org/reports/view/14378"
+    ],
+    "description": [
+      "Hi. This is a Erica Bolden, 438 4th Street, St. Rose Louisiana. Time started 7:25 smells foul odor to where it is very loud and very (distinguished?). Can&#039;t say what it smell like but it&#039;s a real foul odor. That&#039;s it at this time thank you.\n\n\n\nPlay message:  \nhttps://www.google.com/voice/fm/07024096040023310261/AHwOX_AbORLUYJtuunY-puZw8IgLe7fWIrePOjWpdUFg8eQ7USbEBLzgafVtwpRKV0MjuAm5pvlNY7OQEcMHSQj6HPupqUp_EOrRz8uJnGxNnyiZC-bAD7OsTk6DZ4GOTn_MbWnrsRMYx_e3OFhfNih_Wj_TBd-i-g"
+    ],
+    "pubDate": [
+      "Sat, 17 Jan 2015 01:43:00 GMT"
+    ],
+    "guid": [
+      "http://map.labucketbrigade.org/reports/view/14378"
+    ],
+    "georss:point": [
+      "29.947652 -90.324894"
+    ],
+    "category": [
+      "Odor"
+    ],
+    "coordinates": [
+      -90.324894,
+      29.947652
+    ],
+    "id": "14378"
   },
   {
     "title": [
@@ -138,12 +186,16 @@
       "http://map.labucketbrigade.org/reports/view/14373"
     ],
     "georss:point": [
-      -90.301591,
-      29.975277
+      "29.975277 -90.301591"
     ],
     "category": [
       "Leak"
-    ]
+    ],
+    "coordinates": [
+      -90.301591,
+      29.975277
+    ],
+    "id": "14373"
   },
   {
     "title": [
@@ -162,12 +214,16 @@
       "http://map.labucketbrigade.org/reports/view/14370"
     ],
     "georss:point": [
-      -90.4138,
-      30.000336
+      "30.000336 -90.4138"
     ],
     "category": [
       "Flare"
-    ]
+    ],
+    "coordinates": [
+      -90.4138,
+      30.000336
+    ],
+    "id": "14370"
   },
   {
     "title": [
@@ -186,13 +242,17 @@
       "http://map.labucketbrigade.org/reports/view/14368"
     ],
     "georss:point": [
-      -90.413677,
-      30.00043
+      "30.00043 -90.413677"
     ],
     "category": [
       "Flare",
       "Smoke"
-    ]
+    ],
+    "coordinates": [
+      -90.413677,
+      30.00043
+    ],
+    "id": "14368"
   },
   {
     "title": [
@@ -211,13 +271,17 @@
       "http://map.labucketbrigade.org/reports/view/14376"
     ],
     "georss:point": [
-      -90.427925,
-      29.998695
+      "29.998695 -90.427925"
     ],
     "category": [
       "Flare",
       "Onshore Facility"
-    ]
+    ],
+    "coordinates": [
+      -90.427925,
+      29.998695
+    ],
+    "id": "14376"
   },
   {
     "title": [
@@ -236,35 +300,15 @@
       "http://map.labucketbrigade.org/reports/view/14377"
     ],
     "georss:point": [
-      -90.427925,
-      29.998695
+      "29.998695 -90.427925"
     ],
     "category": [
       "Onshore Facility"
-    ]
-  },
-  {
-    "title": [
-      "Forty foot flame"
     ],
-    "link": [
-      "http://map.labucketbrigade.org/reports/view/14353"
+    "coordinates": [
+      -90.427925,
+      29.998695
     ],
-    "description": [
-      "Flaring as seen from the Luling Bridge at 8:10pm on January 3rd. Very bright, looked like a forty foot flame at least!"
-    ],
-    "pubDate": [
-      "Sun, 04 Jan 2015 02:10:00 GMT"
-    ],
-    "guid": [
-      "http://map.labucketbrigade.org/reports/view/14353"
-    ],
-    "georss:point": [
-      -90.372947,
-      29.94264
-    ],
-    "category": [
-      "Flare"
-    ]
+    "id": "14377"
   }
 ]
