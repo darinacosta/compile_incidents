@@ -3,8 +3,8 @@ var http = require("http"),
     gju = require('geojson-utils'),
     parseString = require('xml2js').parseString,
     url = "http://map.labucketbrigade.org/feed",
-    file = "incidents.json",
-    incidents = require('./incidents.json'),
+    geoIncidents = require('./assets/layers/geoIncidents.json'),
+    geoIncidentsFile = './assets/layers/geoIncidents.json',
     parishes = require('./assets/layers/parishesMerged.json'),
 
 objectTracker = function(startingCount){
@@ -30,7 +30,7 @@ objectTracker = function(startingCount){
   };
 },
 
-incidentTracker = new objectTracker(incidents.length),
+incidentTracker = new objectTracker(geoIncidents['features'].length),
 
 pointInTargetArea = function(point){
   var result = gju.pointInPolygon({"type":"Point","coordinates":point}, parishes)
@@ -52,7 +52,7 @@ download = function(url, callback) {
 },
 
 writeToFile = function(content){
-  fs.writeFile(file, content, function(e){
+  fs.writeFile(geoIncidentsFile, content, function(e){
     if(e) {
       console.log(e);
     } else {
@@ -67,8 +67,10 @@ generateIncidentID = function(guid){
 },
 
 recordAlreadyExists = function(record){
-  for (var i = 0; i < incidents.length; i++){
-    if (incidents[i]['guid'][0] === record['guid'][0]){
+  var features = geoIncidents['features'];
+  for (var i = 0; i < features.length; i++){
+    var properties = features[i]['properties'];
+    if (properties['link'] === record['guid'][0]){
       return true;
     }
   }
@@ -85,14 +87,33 @@ updateIncidents = function(inputData){
     if (recordAlreadyExists(inputData[i]) === false){
       formatInputData(inputData[i]);
       if (pointInTargetArea(inputData[i]['coordinates']) === true){
-        incidents.push(inputData[i]);
+        pushToGeoJson(inputData[i]);
         incidentTracker.incWritten();
         incidentTracker.addNewRecord(inputData[i]['id']);
         incidentTracker.addNewRecordDate(inputData[i]['pubDate']);
       }
     }
   };
-  return JSON.stringify(incidents, undefined, 2);
+  return JSON.stringify(geoIncidents, undefined, 2);
+},
+
+pushToGeoJson = function(incident){
+  var geoJsonFeatures = geoIncidents['features'];
+  geoJsonFeatures.push({
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": incident['coordinates']
+    },
+    "properties":{
+      "title": incident['title'][0],
+      "link": incident['link'][0],
+      "description": incident['description'][0],
+      "pubDate": incident['pubDate'][0],
+      "category": incident['category'][0],
+      "id": incident['id']
+    }
+  })
 },
 
 parseLatLong = function(latLngStrng){
@@ -120,3 +141,5 @@ download(url, function(data) {
   }
   else console.log("error");  
 });
+
+
