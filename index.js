@@ -1,9 +1,16 @@
 var http = require("http"),
     fs = require('fs'),
+    gju = require('geojson-utils'),
     parseString = require('xml2js').parseString,
     url = "http://map.labucketbrigade.org/feed",
     file = "incidents.json",
     incidents = require('./incidents.json'),
+    parishes = require('./assets/layers/parishesMerged.geojson'),
+
+/*pointInPolyTest = (function(){
+  var result = gju.pointInPolygon({"type":"Point","coordinates":[3,3]}, parishes)
+  console.log(result + '!!!!!!')
+})(),*/
 
 download = function(url, callback) {
   http.get(url, function(res) {
