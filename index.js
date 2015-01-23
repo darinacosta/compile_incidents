@@ -5,12 +5,12 @@ var http = require("http"),
     url = "http://map.labucketbrigade.org/feed",
     file = "incidents.json",
     incidents = require('./incidents.json'),
-    parishes = require('./assets/layers/parishesMerged.geojson'),
+    parishes = require('./assets/layers/parishesMerged.json'),
 
-/*pointInPolyTest = (function(){
-  var result = gju.pointInPolygon({"type":"Point","coordinates":[3,3]}, parishes)
-  console.log(result + '!!!!!!')
-})(),*/
+pointInPoly = function(point){
+  var result = gju.pointInPolygon({"type":"Point","coordinates":point}, parishes)
+  return result;
+},
 
 download = function(url, callback) {
   http.get(url, function(res) {
@@ -50,8 +50,10 @@ updateIncidents = function(targetData){
   for (var i = 0; i < targetData.length; i++){
     if (jsonRecorded(targetData[i]) === false){
       targetData[i]['georss:point'] = parseLatLong(targetData[i]['georss:point'][0]);
-      incidents.push(targetData[i]);
-      console.log(targetData[i]['guid'] + ' was recorded');
+      if (pointInPoly(targetData[i]['georss:point']) === true){
+        incidents.push(targetData[i]);
+        console.log(targetData[i]['guid'] + ' was recorded');
+      }
     }
   };
   return JSON.stringify(incidents, undefined, 2);
@@ -59,8 +61,10 @@ updateIncidents = function(targetData){
 
 parseLatLong = function(latLngStrng){
   splitLatLng = latLngStrng.split(' ');
-  splitLatLng[0] = parseFloat(splitLatLng[0]);
-  splitLatLng[1] = parseFloat(splitLatLng[1])
+  lat = parseFloat(splitLatLng[0]);
+  lng = parseFloat(splitLatLng[1]);
+  splitLatLng[0] = lng;
+  splitLatLng[1] = lat;
   console.log(splitLatLng);
   return splitLatLng;
 };
