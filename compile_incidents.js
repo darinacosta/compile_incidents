@@ -2,10 +2,19 @@ var http = require("http"),
     fs = require('fs'),
     gju = require('geojson-utils'),
     parseString = require('xml2js').parseString,
+    Sftp = require('sftp-upload'),
     url = "http://map.labucketbrigade.org/feed",
     geoIncidents = require('./assets/layers/geoIncidents.json'),
     geoIncidentsFile = './assets/layers/geoIncidents.json',
     parishes = require('./assets/layers/parishesMerged.json'),
+
+sftp = new Sftp({
+  host:'54.148.242.90',
+  username:'ubuntu',
+  path: '/',
+  remoteDir: '/tempDir',
+  privateKey: fs.readFileSync('a_key.pem')
+}),
 
 objectTracker = function(startingCount){
   this.startingCount = startingCount;
@@ -77,6 +86,15 @@ recordAlreadyExists = function(record){
   return false;
 },
 
+parseLatLong = function(latLngStrng){
+  splitLatLng = latLngStrng.split(' ');
+  lat = parseFloat(splitLatLng[0]);
+  lng = parseFloat(splitLatLng[1]);
+  splitLatLng[0] = lng;
+  splitLatLng[1] = lat;
+  return splitLatLng;
+},
+
 formatInputData = function(inputData){
   inputData['coordinates'] = parseLatLong(inputData['georss:point'][0]);
   inputData['id'] = generateIncidentID(inputData['guid'][0]);
@@ -114,15 +132,6 @@ pushToGeoJson = function(incident){
       "id": incident['id']
     }
   })
-},
-
-parseLatLong = function(latLngStrng){
-  splitLatLng = latLngStrng.split(' ');
-  lat = parseFloat(splitLatLng[0]);
-  lng = parseFloat(splitLatLng[1]);
-  splitLatLng[0] = lng;
-  splitLatLng[1] = lat;
-  return splitLatLng;
 };
 
 download(url, function(data) {
