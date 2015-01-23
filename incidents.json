@@ -16,7 +16,8 @@
       "http://map.labucketbrigade.org/reports/view/14384"
     ],
     "georss:point": [
-      "29.934432 -89.948703"
+      29.934432,
+      -89.948703
     ],
     "category": [
       "Odor"
@@ -39,7 +40,8 @@
       "http://map.labucketbrigade.org/reports/view/14386"
     ],
     "georss:point": [
-      "29.91771 -90.113019"
+      29.91771,
+      -90.113019
     ],
     "category": [
       "Odor"
@@ -62,7 +64,8 @@
       "http://map.labucketbrigade.org/reports/view/14383"
     ],
     "georss:point": [
-      "29.940547 -89.974989"
+      29.940547,
+      -89.974989
     ],
     "category": [
       "Odor"
@@ -85,7 +88,8 @@
       "http://map.labucketbrigade.org/reports/view/14382"
     ],
     "georss:point": [
-      "29.934968 -89.976105"
+      29.934968,
+      -89.976105
     ],
     "category": [
       "Odor"
@@ -108,7 +112,8 @@
       "http://map.labucketbrigade.org/reports/view/14381"
     ],
     "georss:point": [
-      "29.945051 -90.322952"
+      29.945051,
+      -90.322952
     ],
     "category": [
       "Odor",
@@ -132,7 +137,8 @@
       "http://map.labucketbrigade.org/reports/view/14380"
     ],
     "georss:point": [
-      "29.94738 -90.322692"
+      29.94738,
+      -90.322692
     ],
     "category": [
       "Odor",
@@ -156,7 +162,8 @@
       "http://map.labucketbrigade.org/reports/view/14379"
     ],
     "georss:point": [
-      "29.9969 -90.413377"
+      29.9969,
+      -90.413377
     ],
     "category": [
       "Odor"
@@ -179,7 +186,8 @@
       "http://map.labucketbrigade.org/reports/view/14378"
     ],
     "georss:point": [
-      "29.947652 -90.324894"
+      29.947652,
+      -90.324894
     ],
     "category": [
       "Odor"
@@ -202,7 +210,8 @@
       "http://map.labucketbrigade.org/reports/view/14374"
     ],
     "georss:point": [
-      "30.472565 -91.182038"
+      30.472565,
+      -91.182038
     ],
     "category": [
       "Odor"
@@ -225,7 +234,8 @@
       "http://map.labucketbrigade.org/reports/view/14371"
     ],
     "georss:point": [
-      "32.466795 -93.796875"
+      32.466795,
+      -93.796875
     ],
     "category": [
       "Smoke"
@@ -248,7 +258,8 @@
       "http://map.labucketbrigade.org/reports/view/14375"
     ],
     "georss:point": [
-      "29.937569 -90.056884"
+      29.937569,
+      -90.056884
     ],
     "category": [
       "Flare"
@@ -271,7 +282,8 @@
       "http://map.labucketbrigade.org/reports/view/14373"
     ],
     "georss:point": [
-      "29.975277 -90.301591"
+      29.975277,
+      -90.301591
     ],
     "category": [
       "Leak"
@@ -294,7 +306,8 @@
       "http://map.labucketbrigade.org/reports/view/14370"
     ],
     "georss:point": [
-      "30.000336 -90.4138"
+      30.000336,
+      -90.4138
     ],
     "category": [
       "Flare"
@@ -317,7 +330,8 @@
       "http://map.labucketbrigade.org/reports/view/14369"
     ],
     "georss:point": [
-      "30.401998 -91.169495"
+      30.401998,
+      -91.169495
     ],
     "category": [
       "Odor",
@@ -341,7 +355,8 @@
       "http://map.labucketbrigade.org/reports/view/14368"
     ],
     "georss:point": [
-      "30.00043 -90.413677"
+      30.00043,
+      -90.413677
     ],
     "category": [
       "Flare",
@@ -365,7 +380,8 @@
       "http://map.labucketbrigade.org/reports/view/14376"
     ],
     "georss:point": [
-      "29.998695 -90.427925"
+      29.998695,
+      -90.427925
     ],
     "category": [
       "Flare",
@@ -389,7 +405,8 @@
       "http://map.labucketbrigade.org/reports/view/14377"
     ],
     "georss:point": [
-      "29.998695 -90.427925"
+      29.998695,
+      -90.427925
     ],
     "category": [
       "Onshore Facility"
@@ -412,7 +429,8 @@
       "http://map.labucketbrigade.org/reports/view/14352"
     ],
     "georss:point": [
-      "29.944922 -89.975403"
+      29.944922,
+      -89.975403
     ],
     "category": [
       "Odor",
@@ -436,7 +454,8 @@
       "http://map.labucketbrigade.org/reports/view/14340"
     ],
     "georss:point": [
-      "29.941218 -89.942039"
+      29.941218,
+      -89.942039
     ],
     "category": [
       "Flare",
@@ -461,7 +480,8 @@
       "http://map.labucketbrigade.org/reports/view/14353"
     ],
     "georss:point": [
-      "29.94264 -90.372947"
+      29.94264,
+      -90.372947
     ],
     "category": [
       "Flare"

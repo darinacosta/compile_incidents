@@ -37,20 +37,33 @@ jsonRecorded = function(entry){
     }
   }
   return false;
+},
+
+updateIncidents = function(targetData){
+  for (var i = 0; i < targetData.length; i++){
+    if (jsonRecorded(targetData[i]) === false){
+      targetData[i]['georss:point'] = parseLatLong(targetData[i]['georss:point'][0]);
+      incidents.push(targetData[i]);
+      console.log(targetData[i]['guid'] + ' was recorded');
+    }
+  };
+  return JSON.stringify(incidents, undefined, 2);
+},
+
+parseLatLong = function(latLngStrng){
+  splitLatLng = latLngStrng.split(' ');
+  splitLatLng[0] = parseFloat(splitLatLng[0]);
+  splitLatLng[1] = parseFloat(splitLatLng[1])
+  console.log(splitLatLng);
+  return splitLatLng;
 };
 
 download(url, function(data) {
   //var json;
   if (data) {
     parseString(data, function (err, result) {
-      var targetData = result['rss']['channel'][0]['item'];
-      for (var i = 0; i < targetData.length; i++){
-        if (jsonRecorded(targetData[i]) === false){
-          console.log(incidents[i]['guid'] + ' was recorded');
-          incidents.push[targetData[i]]
-        }
-      }
-      var incidentString = JSON.stringify(incidents, undefined, 2);
+      var targetData = result['rss']['channel'][0]['item'],
+          incidentString = updateIncidents(targetData);
       writeToFile(incidentString);
     });
   }
