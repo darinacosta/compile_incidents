@@ -9,12 +9,25 @@ var http = require("http"),
     parishes = require('./assets/layers/parishesMerged.json'),
 
 sftp = new Sftp({
-  host:'54.148.242.90',
+  host:'54.148.88.177',
   username:'ubuntu',
-  path: '/',
-  remoteDir: '/tempDir',
+  path: 'assets/layers',
+  remoteDir: '/gis/vector',
   privateKey: fs.readFileSync('a_key.pem')
 }),
+
+configureSftp = (function(){
+  sftp.on('error', function(err){
+        throw err;
+    })
+    .on('uploading', function(pgs){
+        console.log('Uploading', pgs.file);
+        console.log(pgs.percent+'% completed');
+    })
+    .on('completed', function(){
+        console.log('Upload Completed');
+    })
+  })(),
 
 objectTracker = function(startingCount){
   this.startingCount = startingCount;
@@ -95,9 +108,14 @@ parseLatLong = function(latLngStrng){
   return splitLatLng;
 },
 
+formatDescriptionString = function(string){
+  return string.replace(/Play [mM]essage: *[\n]+.*/, '');
+},
+
 formatInputData = function(inputData){
   inputData['coordinates'] = parseLatLong(inputData['georss:point'][0]);
   inputData['id'] = generateIncidentID(inputData['guid'][0]);
+  inputData['description'] = formatDescriptionString(inputData['description'][0])
 },
 
 updateIncidents = function(inputData){
@@ -112,7 +130,7 @@ updateIncidents = function(inputData){
       }
     }
   };
-  return JSON.stringify(geoIncidents, undefined, 2);
+  return JSON.stringify(geoIncidents) //(layer, undefined, 2) to prettify;
 },
 
 pushToGeoJson = function(incident){
@@ -126,7 +144,7 @@ pushToGeoJson = function(incident){
     "properties":{
       "title": incident['title'][0],
       "link": incident['link'][0],
-      "description": incident['description'][0],
+      "description": incident['description'],
       "pubDate": incident['pubDate'][0],
       "category": incident['category'][0],
       "id": incident['id']
@@ -141,6 +159,7 @@ download(url, function(data) {
       var targetData = result['rss']['channel'][0]['item'],
           incidentString = updateIncidents(targetData);
       writeToFile(incidentString);
+      sftp.upload();
       console.log('Starting count: ' + incidentTracker.startingCount + '\n' + 
                   'Records added: ' + + incidentTracker.objectsWritten  + '\n' + 
                   'Ending count: ' + incidentTracker.endingCount() + '\n' + 
