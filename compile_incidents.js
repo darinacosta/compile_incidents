@@ -159,7 +159,7 @@ download(url, function(data) {
       var targetData = result['rss']['channel'][0]['item'],
           incidentString = updateIncidents(targetData);
       writeToFile(incidentString);
-      sftp.upload();
+      //sftp.upload();
       console.log('Starting count: ' + incidentTracker.startingCount + '\n' + 
                   'Records added: ' + + incidentTracker.objectsWritten  + '\n' + 
                   'Ending count: ' + incidentTracker.endingCount() + '\n' + 
