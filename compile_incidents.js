@@ -3,6 +3,8 @@ var http = require("http"),
     gju = require('geojson-utils'),
     parseString = require('xml2js').parseString,
     url = "http://map.labucketbrigade.org/feed",
+    log = "./log.txt",
+    now = new Date(),
     geoIncidents = require('./assets/layers/geoIncidents.json'),
     geoIncidentsFile = './assets/layers/geoIncidents.json',
     parishes = require('./assets/layers/parishesMerged.json'),
@@ -134,13 +136,16 @@ download(url, function(data) {
   if (data) {
     parseString(data, function (err, result) {
       var targetData = result['rss']['channel'][0]['item'],
-          incidentString = updateIncidents(targetData);
-      writeToFile(incidentString);
-      console.log('Starting count: ' + incidentTracker.startingCount + '\n' + 
+          incidentString = updateIncidents(targetData),
+          record = '\n' + now + '\n' +
+                  'Starting count: ' + incidentTracker.startingCount + '\n' + 
                   'Records added: ' + + incidentTracker.objectsWritten  + '\n' + 
                   'Ending count: ' + incidentTracker.endingCount() + '\n' + 
                   'New Record IDs: ' + incidentTracker.newRecords  + '\n' +
-                  'New Record Dates: ' + incidentTracker.newRecordDates);
+                  'New Record Dates: ' + incidentTracker.newRecordDates + '\n';
+      writeToFile(incidentString);
+      console.log(record);
+      fs.appendFile(log, record);
     });
   }
   else console.log("error");  
