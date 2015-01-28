@@ -2,32 +2,10 @@ var http = require("http"),
     fs = require('fs'),
     gju = require('geojson-utils'),
     parseString = require('xml2js').parseString,
-    Sftp = require('sftp-upload'),
     url = "http://map.labucketbrigade.org/feed",
     geoIncidents = require('./assets/layers/geoIncidents.json'),
     geoIncidentsFile = './assets/layers/geoIncidents.json',
     parishes = require('./assets/layers/parishesMerged.json'),
-
-sftp = new Sftp({
-  host:'54.148.88.177',
-  username:'ubuntu',
-  path: 'assets/layers',
-  remoteDir: '/gis/vector',
-  privateKey: fs.readFileSync('a_key.pem')
-}),
-
-configureSftp = (function(){
-  sftp.on('error', function(err){
-        throw err;
-    })
-    .on('uploading', function(pgs){
-        console.log('Uploading', pgs.file);
-        console.log(pgs.percent+'% completed');
-    })
-    .on('completed', function(){
-        console.log('Upload Completed');
-    })
-  })(),
 
 objectTracker = function(startingCount){
   this.startingCount = startingCount;
@@ -153,13 +131,11 @@ pushToGeoJson = function(incident){
 };
 
 download(url, function(data) {
-  //var json;
   if (data) {
     parseString(data, function (err, result) {
       var targetData = result['rss']['channel'][0]['item'],
           incidentString = updateIncidents(targetData);
       writeToFile(incidentString);
-      //sftp.upload();
       console.log('Starting count: ' + incidentTracker.startingCount + '\n' + 
                   'Records added: ' + + incidentTracker.objectsWritten  + '\n' + 
                   'Ending count: ' + incidentTracker.endingCount() + '\n' + 
