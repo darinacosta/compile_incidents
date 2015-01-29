@@ -1,1 +1,8 @@
 
+
+Thu Jan 29 2015 14:50:44 GMT-0600 (Central Standard Time)
+Starting count: 29
+Records added: 3
+Ending count: 32
+New Record IDs: 14415,14414,14417
+New Record Dates: Thu, 29 Jan 2015 15:05:00 GMT,Thu, 29 Jan 2015 14:43:00 GMT,Wed, 28 Jan 2015 12:25:00 GMT
