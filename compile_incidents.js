@@ -7,6 +7,7 @@ var http = require("http"),
     now = new Date(),
     geoIncidents = require('./assets/layers/geoIncidents.json'),
     geoIncidentsFile = './assets/layers/geoIncidents.json',
+    requireFile = './assets/layers/eyewitness-require.js',
     parishes = require('./assets/layers/parishesMerged.json'),
     maxSize = 6,
 
@@ -54,7 +55,7 @@ download = function(url, callback) {
   });
 },
 
-writeToFile = function(content){
+writeToJsonFile = function(content){
   fs.writeFile(geoIncidentsFile, content, function(e){
     if(e) {
       console.log(e);
@@ -147,7 +148,8 @@ download(url, function(data) {
       var targetData = result['rss']['channel'][0]['item'],
           incidentString = updateIncidents(targetData),
           megabytes, record;
-      writeToFile(incidentString);
+      writeToJsonFile(incidentString);
+      fs.writeFile(requireFile, 'define(' + incidentString + ');');
       newMegabytes = calculateFileSize(geoIncidentsFile);
       record = '\n' + now + '\n' +
         'Starting count: ' + incidentTracker.startingCount + '\n' + 
