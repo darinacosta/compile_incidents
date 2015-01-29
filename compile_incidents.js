@@ -8,6 +8,7 @@ var http = require("http"),
     geoIncidents = require('./assets/layers/geoIncidents.json'),
     geoIncidentsFile = './assets/layers/geoIncidents.json',
     parishes = require('./assets/layers/parishesMerged.json'),
+    maxSize = 6,
 
 objectTracker = function(startingCount){
   this.startingCount = startingCount;
@@ -140,24 +141,25 @@ pushToGeoJson = function(incident){
 };
 
 download(url, function(data) {
-  if (data) {
+  oldMegabytes = calculateFileSize(geoIncidentsFile);
+  if (data && oldMegabytes < maxSize) {
     parseString(data, function (err, result) {
       var targetData = result['rss']['channel'][0]['item'],
           incidentString = updateIncidents(targetData),
           megabytes, record;
       writeToFile(incidentString);
-      megabytes = calculateFileSize(geoIncidentsFile);
+      newMegabytes = calculateFileSize(geoIncidentsFile);
       record = '\n' + now + '\n' +
         'Starting count: ' + incidentTracker.startingCount + '\n' + 
         'Records added: ' + + incidentTracker.objectsWritten  + '\n' + 
         'Ending count: ' + incidentTracker.endingCount() + '\n' + 
         'New Record IDs: ' + incidentTracker.newRecords  + '\n' +
-        'File size: ' + megabytes + ' MB' + '\n';
+        'File size: ' + newMegabytes + ' MB' + '\n';
       console.log(record);
       fs.appendFile(log, record);
     });
   }
-  else console.log("error");  
+  else console.log("The file wasn't written. The file size may be too large.\n" + "Increase the 'maxSize' value and try again.");  
 });
 
 
