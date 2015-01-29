@@ -63,6 +63,13 @@ writeToFile = function(content){
   })
 },
 
+calculateFileSize = function(file){
+  var stats = fs.statSync(file),
+      bytes = stats['size'],
+      megabytes = bytes / 1000000.0;
+      return megabytes;
+},
+
 generateIncidentID = function(guid){
   var splitArray = guid.split('/');
   return splitArray[splitArray.length - 1];
@@ -137,13 +144,16 @@ download(url, function(data) {
     parseString(data, function (err, result) {
       var targetData = result['rss']['channel'][0]['item'],
           incidentString = updateIncidents(targetData),
-          record = '\n' + now + '\n' +
-                  'Starting count: ' + incidentTracker.startingCount + '\n' + 
-                  'Records added: ' + + incidentTracker.objectsWritten  + '\n' + 
-                  'Ending count: ' + incidentTracker.endingCount() + '\n' + 
-                  'New Record IDs: ' + incidentTracker.newRecords  + '\n' +
-                  'New Record Dates: ' + incidentTracker.newRecordDates + '\n';
+          megabytes, record;
       writeToFile(incidentString);
+      megabytes = calculateFileSize(geoIncidentsFile);
+      record = '\n' + now + '\n' +
+        'Starting count: ' + incidentTracker.startingCount + '\n' + 
+        'Records added: ' + + incidentTracker.objectsWritten  + '\n' + 
+        'Ending count: ' + incidentTracker.endingCount() + '\n' + 
+        'New Record IDs: ' + incidentTracker.newRecords  + '\n' +
+        'New Record Dates: ' + incidentTracker.newRecordDates + '\n' + 
+        'File size: ' + megabytes + ' MB' + '\n';
       console.log(record);
       fs.appendFile(log, record);
     });
