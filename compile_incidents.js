@@ -152,7 +152,6 @@ download(url, function(data) {
         'Records added: ' + + incidentTracker.objectsWritten  + '\n' + 
         'Ending count: ' + incidentTracker.endingCount() + '\n' + 
         'New Record IDs: ' + incidentTracker.newRecords  + '\n' +
-        'New Record Dates: ' + incidentTracker.newRecordDates + '\n' + 
         'File size: ' + megabytes + ' MB' + '\n';
       console.log(record);
       fs.appendFile(log, record);
