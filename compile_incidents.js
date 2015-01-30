@@ -156,7 +156,7 @@ download(url, function(data) {
         'Records added: ' + + incidentTracker.objectsWritten  + '\n' + 
         'Ending count: ' + incidentTracker.endingCount() + '\n' + 
         'New Record IDs: ' + incidentTracker.newRecords  + '\n' +
-        'File size: ' + newMegabytes + ' MB' + '\n';
+        'File size: ' + oldMegabytes + ' MB' + '\n';
       console.log(record);
       fs.appendFile(log, record);
     });
