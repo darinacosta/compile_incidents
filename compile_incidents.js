@@ -150,7 +150,6 @@ download(url, function(data) {
           megabytes, record;
       writeToJsonFile(incidentString);
       fs.writeFile(requireFile, 'define(' + incidentString + ');');
-      newMegabytes = calculateFileSize(geoIncidentsFile);
       record = '\n' + now + '\n' +
         'Starting count: ' + incidentTracker.startingCount + '\n' + 
         'Records added: ' + + incidentTracker.objectsWritten  + '\n' + 
